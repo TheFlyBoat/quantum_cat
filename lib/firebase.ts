@@ -7,7 +7,7 @@ import { getFirestore } from 'firebase/firestore';
 const firebaseConfig = {
   "projectId": "studio-5841343011-cffec",
   "appId": "1:276050021558:web:4335118ef436b52c266a17",
-  "apiKey": "REMOVED_FIREBASE_API_KEY",
+  "apiKey": process.env.NEXT_PUBLIC_FIREBASE_API_KEY as string,
   "authDomain": "studio-5841343011-cffec.firebaseapp.com",
   "measurementId": "",
   "messagingSenderId": "276050021558"
