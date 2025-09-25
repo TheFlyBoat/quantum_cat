@@ -1,3 +1,4 @@
+import { APP_VERSION } from '@/lib/version';
 
 'use client';
 
@@ -81,7 +82,7 @@ export function InfoPanel() {
             </Dialog>
             <Dialog>
                 <DialogTrigger asChild><Button variant="outline" className="w-full justify-start gap-2" onClick={() => playSound('click-2')}><Info />About</Button></DialogTrigger>
-                <DialogContent><DialogHeader><DialogTitle>About The Quantum Cat</DialogTitle></DialogHeader><div className="space-y-2 text-sm text-muted-foreground"><p>Version 2.0.4</p><p>This app is a playful exploration of the famous Schrödinger's Cat thought experiment.</p><p>What state will your cat be in?</p></div></DialogContent>
+                <DialogContent><DialogHeader><DialogTitle>About The Quantum Cat</DialogTitle></DialogHeader><div className="space-y-2 text-sm text-muted-foreground"><p>{'Version '+APP_VERSION}</p><p>This app is a playful exploration of the famous Schrödinger's Cat thought experiment.</p><p>What state will your cat be in?</p></div></DialogContent>
             </Dialog>
             <Dialog>
                 <DialogTrigger asChild><Button variant="outline" className="w-full justify-start gap-2" onClick={() => playSound('click-2')}><GitCommit />Credits</Button></DialogTrigger>

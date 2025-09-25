@@ -28,7 +28,7 @@ export function ShareCard({ catState, message, boxSkin }: ShareCardProps) {
         'initial': 'from-gray-100 to-gray-200',
     };
 
-    const gradientClass = cat ? gradients[cat.type] || gradients.initial : gradients.initial;
+    const gradientClass = cat ? gradients[cat.type] ? gradients[cat.type] : gradients.initial : gradients.initial;
     const hashtag = cat ? `#${cat.type.toLowerCase()}cat` : '#thequantumcat';
 
     let BoxComponent;

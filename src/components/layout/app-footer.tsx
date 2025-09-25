@@ -1,3 +1,4 @@
+import { APP_VERSION } from '@/lib/version';
 
 'use client';
 
@@ -107,7 +108,7 @@ export function AppFooter({ onSettingsClick, onInfoClick }: { onSettingsClick: (
                     <div
                         onClick={handleVersionClick}
                         className={`absolute bottom-4 right-4 text-xs cursor-pointer transition-colors ${versionColorClass}`}>
-                        v2.0.4
+                        {'v'+APP_VERSION}
                     </div>
                 )}
             </div>
