@@ -65,8 +65,8 @@ export const DiaryProvider = ({ children }: { children: ReactNode }) => {
     if (user && user !== 'guest' && setUserData) {
       setUserData(prevData => {
         const updatedData = { ...prevData, diary: newData };
-        saveUserData(user.uid, updatedData as UserData);
-        return updatedData as UserData;
+        saveUserData(user.uid, updatedData as any);
+        return updatedData as any;
       });
     }
   }, [data, isBadgeUnlocked, unlockBadge, user, setUserData]);

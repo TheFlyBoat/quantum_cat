@@ -1,6 +1,6 @@
-import { APP_VERSION } from '@/lib/version';
-
 'use client';
+import { Award } from 'lucide-react';
+import { APP_VERSION } from '@/lib/version';
 
 import * as React from 'react';
 import { Button } from '@/components/ui/button';

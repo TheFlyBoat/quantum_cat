@@ -5,10 +5,12 @@ import {
   SleepyCatIcon, HologramCatIcon, GravityCatIcon, GlitchCatIcon
 } from '@/components/cats';
 
-const Unknown = ({ className }: { className?: string }) => (
+// Explicit React component type for fallback
+const Unknown: React.FC<{ className?: string }> = ({ className }) => (
   <div className={className} aria-label="Unknown cat" />
 );
 
+// Map of known cats
 export const catComponentMap: Record<string, React.ComponentType<{ className?: string }>> = {
   ginger: GingerCatIcon,
   ghost: GhostCatIcon,
@@ -24,11 +26,12 @@ export const catComponentMap: Record<string, React.ComponentType<{ className?: s
   hologram: HologramCatIcon,
   gravity: GravityCatIcon,
   paradox: GlitchCatIcon,
-  glitch: GlitchCatIcon
+  glitch: GlitchCatIcon,
 };
 
-export function getCatComponent(id?: string) {
-  const Comp = (id && catComponentMap[id]) || Unknown;
+// Return an ElementType so <CatComponent /> is legal
+export function getCatComponent(id?: string): React.ElementType {
+  const Comp: React.ElementType = (id && catComponentMap[id]) || Unknown;
   if (!id || !catComponentMap[id]) console.warn('[cats-map] Unknown cat id:', id);
   return Comp;
 }

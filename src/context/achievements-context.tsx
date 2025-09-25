@@ -47,7 +47,7 @@ export const AchievementsProvider = ({ children }: { children: ReactNode }) => {
       
       setStreak(currentStreak);
       setTotalObservations(userData.totalObservations || 0);
-      setRevealHistory(userData.revealHistory || []);
+      setRevealHistory(((userData as any)?.revealHistory) ?? []);
     }
   }, [userData, user]);
 

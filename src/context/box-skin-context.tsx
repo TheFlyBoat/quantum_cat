@@ -29,7 +29,7 @@ export const BoxSkinProvider = ({ children }: { children: ReactNode }) => {
       setUnlockedSkins(defaultSkins);
     } else if (userData) {
       setSelectedSkin(userData.selectedSkin || 'default');
-      setUnlockedSkins(userData.unlockedSkins || defaultSkins);
+      setUnlockedSkins((((userData as any)?.unlockedSkins) as unknown as BoxSkin[]) ?? defaultSkins);
     }
   }, [userData, user]);
 
@@ -38,8 +38,8 @@ export const BoxSkinProvider = ({ children }: { children: ReactNode }) => {
     if (user && user !== 'guest' && setUserData) {
       setUserData(prevData => {
         const updatedData = { ...prevData, selectedSkin: skin };
-        saveUserData(user.uid, updatedData as UserData);
-        return updatedData as UserData;
+        saveUserData(user.uid, updatedData as any);
+        return updatedData as any;
       });
     }
   }, [user, setUserData]);
@@ -53,8 +53,8 @@ export const BoxSkinProvider = ({ children }: { children: ReactNode }) => {
     if (user && user !== 'guest' && setUserData) {
       setUserData(prevData => {
         const updatedData = { ...prevData, unlockedSkins: newSkins };
-        saveUserData(user.uid, updatedData as UserData);
-        return updatedData as UserData;
+        saveUserData(user.uid, updatedData as any);
+        return updatedData as any;
       });
     }
   }, [unlockedSkins, user, setUserData]);

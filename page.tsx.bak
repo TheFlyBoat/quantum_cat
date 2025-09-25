@@ -22,7 +22,7 @@ export default function RootPage() {
 
   return (
     <div className="flex h-screen w-full items-center justify-center">
-      <QuantumCatBox onClick={() => {}} isLoading={true} catState={{ outcome: "initial" }} />
+      <QuantumCatBox />
     </div>
   );
 }

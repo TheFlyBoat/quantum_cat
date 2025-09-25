@@ -21,7 +21,6 @@ export default function RootPage() {
           onClick={() => {}}
           isLoading={true}
           isAmbientShaking={false}
-          // @ts-expect-error minimal state for loading shell
           catState={{ outcome: 'initial' }}
         />
       </div>

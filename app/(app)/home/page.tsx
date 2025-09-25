@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -20,7 +19,11 @@ import { useToast } from '@/hooks/use-toast';
 import { playSound } from '@/lib/audio';
 import { cn } from '@/lib/utils';
 
-export default function HomePage({ onInteraction, setRevealedCatId }: { onInteraction?: () => void; setRevealedCatId?: (id: string | null) => void; }) {
+export default function HomePage() {
+  const onInteraction = () => {};
+  const setRevealedCatId = (_id: string | null) => {};
+
+
     const [isMessageSaved, setIsMessageSaved] = useState(false);
     const [showTutorial, setShowTutorial] = useState(false);
     const [isAmbientShaking, setIsAmbientShaking] = useState(false);

@@ -11,28 +11,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { useDiary } from "@/context/diary-context";
 import { Eye, HeartCrack, Swords, BookOpen } from "lucide-react";
-import { GingerCatIcon, GhostCatIcon, ShadowCatIcon, BonesCatIcon, IdentityCrisisCatIcon, AltCat, BreuCatIcon, ZumbiCatIcon, BlizzardCatIcon, VoodooCatIcon, SleepyCatIcon, HologramCatIcon, GravityCatIcon, GlitchCatIcon } from '@/components/cats';
+import { getCatComponent } from '@/lib/cats-map';
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
-const catComponentMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
-    'ginger': GingerCatIcon,
-    'ghost': GhostCatIcon,
-    'paradox': GlitchCatIcon,
-    'shadow': ShadowCatIcon,
-    'bones': BonesCatIcon,
-    'identity-crisis': IdentityCrisisCatIcon,
-    'alt': AltCat,
-    'breu': BreuCatIcon,
-    'zumbi': ZumbiCatIcon,
-    'blizzard': BlizzardCatIcon,
-    'voodoo': VoodooCatIcon,
-    'sleepy': SleepyCatIcon,
-    'hologram': HologramCatIcon,
-    'gravity': GravityCatIcon,
-    'glitch': GlitchCatIcon,
-};
 
 interface CatProfileDialogProps {
     cat: {
@@ -52,7 +35,7 @@ interface CatProfileDialogProps {
 export function CatProfileDialog({ cat, open, onOpenChange, onOpenDiary }: CatProfileDialogProps) {
     const { getRevealCount } = useDiary();
     const revealCount = getRevealCount(cat.id);
-    const CatComponent = catComponentMap[cat.id];
+    const CatComponent = getCatComponent(cat.id);
     
     const displayName = cat.name.endsWith(" Cat") ? cat.name : `${cat.name} Cat`;
 
