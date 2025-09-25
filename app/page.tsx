@@ -1,6 +1,4 @@
-
 'use client';
-
 import { useAuth } from '@/context/auth-context';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -11,18 +9,23 @@ export default function RootPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading) {
-      if (user) {
-        router.replace('/home');
-      } else {
-        router.replace('/login');
-      }
-    }
+    if (loading) return;
+    if (user) router.replace('/home');
+    else router.push('/login');
   }, [user, loading, router]);
 
-  return (
-    <div className="flex h-screen w-full items-center justify-center">
-      <QuantumCatBox />
-    </div>
-  );
+  if (loading) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <QuantumCatBox
+          onClick={() => {}}
+          isLoading={true}
+          isAmbientShaking={false}
+          // @ts-expect-error minimal state for loading shell
+          catState={{ outcome: 'initial' }}
+        />
+      </div>
+    );
+  }
+  return null;
 }
