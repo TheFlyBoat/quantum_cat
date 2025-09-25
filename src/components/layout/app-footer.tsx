@@ -1,6 +1,5 @@
-import { APP_VERSION } from '@/lib/version';
-
 'use client';
+import { APP_VERSION } from '@/lib/version';
 
 import * as React from 'react';
 import { useState, useMemo } from 'react';
@@ -85,7 +84,7 @@ export function AppFooter({ onSettingsClick, onInfoClick }: { onSettingsClick: (
                         <Tooltip><TooltipTrigger asChild><DropdownMenuItem asChild><Link href="/customize"><BoxIcon /></Link></DropdownMenuItem></TooltipTrigger><TooltipContent><p>Customize</p></TooltipContent></Tooltip>
                         <Tooltip><TooltipTrigger asChild><DropdownMenuItem onClick={onSettingsClick}><Settings /></DropdownMenuItem></TooltipTrigger><TooltipContent><p>Settings</p></TooltipContent></Tooltip>
                         <Tooltip><TooltipTrigger asChild><DropdownMenuItem onClick={onInfoClick}><Info /></DropdownMenuItem></TooltipTrigger><TooltipContent><p>Info</p></TooltipContent></Tooltip>
-                        <DropdownMenuSeparator orientation="vertical" className="h-6" />
+                        <DropdownMenuSeparator className="h-6" />
                         <AlertDialog>
                             <Tooltip><TooltipTrigger asChild><AlertDialogTrigger asChild><DropdownMenuItem onSelect={(e) => e.preventDefault()}><RotateCcw /></DropdownMenuItem></AlertDialogTrigger></TooltipTrigger><TooltipContent><p>Reset</p></TooltipContent></Tooltip>
                             <AlertDialogContent>
