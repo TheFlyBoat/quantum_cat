@@ -59,7 +59,14 @@ const generateCatMessageFlow = ai.defineFlow(
     outputSchema: GenerateCatMessageOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
+    let output: any;
+if (!process.env.GEMINI_API_KEY) {
+  const msgs = (await import('@/lib/fallback-messages.json')).default as any[];
+  const pick = msgs[Math.floor(Math.random()*msgs.length)];
+  output = { text: (pick?.message ?? pick) };
+} else {
+  ({ output } = await prompt(input));
+}
     return output!;
   }
 );

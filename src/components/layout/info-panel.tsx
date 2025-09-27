@@ -7,7 +7,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent } from '@/components/ui/card';
-import { HelpCircle, Info, GitCommit, MessageSquare, Heart, Cat, Fish, Bolt, BoxIcon, Share2, User, Shield } from 'lucide-react';
+import { HelpCircle, Info, GitCommit, MessageSquare, Heart, Cat, Fish, Bolt, BoxIcon, Share2, User, Shield, Award} from 'lucide-react';
 import badgeData from '@/lib/badge-data.json';
 import { playSound } from '@/lib/audio';
 
